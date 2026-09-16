@@ -1,9 +1,9 @@
-import React, { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import './App.css'
 import { 
   Home, Map, Layers, Image, Grid, Activity, Globe, Info, Phone, 
   Menu, X, ChevronDown, TrendingUp, Shield, Database, Compass, 
-  ChevronRight, BarChart3, Mail, Award, Mountain, ExternalLink, Code, Video
+  ChevronRight, BarChart3, Mail, Award, Mountain, Code
 } from 'lucide-react'
 
 // --- Mock Data for Seismic Monitor ---
@@ -167,7 +167,7 @@ const FeatureCard = ({ icon, title, description, emoji }) => {
 }
 
 // --- Dropdown Component (Hover-triggered) ---
-const Dropdown = ({ items, isOpen, onClose, triggerRef, position = "left" }) => {
+const Dropdown = ({ items, isOpen, onClose, position = "left" }) => {
   const dropdownRef = useRef(null)
   const timeoutRef = useRef(null)
 
@@ -182,8 +182,7 @@ const Dropdown = ({ items, isOpen, onClose, triggerRef, position = "left" }) => 
 
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target) && 
-          triggerRef.current && !triggerRef.current.contains(event.target)) {
+      if (dropdownRef.current && !dropdownRef.current.parentElement?.contains(event.target)) {
         onClose(false)
       }
     }
@@ -204,7 +203,7 @@ const Dropdown = ({ items, isOpen, onClose, triggerRef, position = "left" }) => 
       document.removeEventListener('keydown', handleEsc)
       if (timeoutRef.current) clearTimeout(timeoutRef.current)
     }
-  }, [isOpen, onClose, triggerRef])
+  }, [isOpen, onClose])
 
   if (!isOpen) return null
 
@@ -281,11 +280,6 @@ function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [openDropdown, setOpenDropdown] = useState(null)
   
-  // Refs for dropdown triggers
-  const geospatialTriggerRef = useRef(null)
-  const geoglobeTriggerRef = useRef(null)
-  const softwareTriggerRef = useRef(null)
-  
   // Define dropdown items for Geospatial Services
   const geospatialItems = [
     { 
@@ -359,7 +353,6 @@ function App() {
       hasDropdown: true,
       dropdownId: "geospatial",
       dropdownItems: geospatialItems,
-      triggerRef: geospatialTriggerRef,
       emoji: "🗺️"
     },
     { 
@@ -375,7 +368,6 @@ function App() {
       hasDropdown: true,
       dropdownId: "geoglobe",
       dropdownItems: geoglobeItems,
-      triggerRef: geoglobeTriggerRef,
       emoji: "🌍"
     },
     { 
@@ -385,7 +377,6 @@ function App() {
       hasDropdown: true,
       dropdownId: "software",
       dropdownItems: softwareItems,
-      triggerRef: softwareTriggerRef,
       emoji: "💻"
     },
     { 
@@ -438,7 +429,6 @@ function App() {
                   {item.hasDropdown ? (
                     <>
                       <button
-                        ref={item.triggerRef}
                         onClick={() => setOpenDropdown(openDropdown === item.dropdownId ? null : item.dropdownId)}
                         className={`nav-link dropdown-btn ${openDropdown === item.dropdownId ? 'active' : ''}`}
                       >
@@ -450,7 +440,6 @@ function App() {
                         items={item.dropdownItems}
                         isOpen={openDropdown === item.dropdownId}
                         onClose={() => setOpenDropdown(null)}
-                        triggerRef={item.triggerRef}
                         position="left"
                       />
                     </>
