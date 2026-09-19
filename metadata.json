@@ -1,6 +1,7 @@
 {
   "name": "Ethiopia Geoscience Information System",
-  "description": "Ethiopia Geoscience Information System - Advanced geospatial data and seismic monitoring platform",
+  "description": "Ethiopia Integrated Geoscience Information System (EIGIS) - Authoritative national geospatial data infrastructure with IGIS Web Map Services, Map Gallery, Field Survey, and GeoPlanner.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }
+

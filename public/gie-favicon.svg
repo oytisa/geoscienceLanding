@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160">
+  <defs>
+    <path id="favTextTop" d="M 28 80 A 52 52 0 0 1 132 80" />
+    <path id="favTextBottom" d="M 134 80 A 54 54 0 0 1 26 80" />
+    <radialGradient id="favGold" cx="50%" cy="50%" r="50%">
+      <stop offset="65%" stopColor="#fff2be" />
+      <stop offset="100%" stopColor="#eed78b" />
+    </radialGradient>
+  </defs>
+
+  <circle cx="80" cy="80" r="77" fill="url(#favGold)" stroke="#1a202c" stroke-width="3" />
+  <circle cx="80" cy="80" r="54" fill="#ffffff" stroke="#1a202c" stroke-width="2" />
+
+  <text font-size="8.8" font-weight="bold" fill="#111827">
+    <textPath href="#favTextTop" startOffset="50%" text-anchor="middle">
+      የኢትዮጵያ ጂኦሎጂካል ኢንስቲትዩት
+    </textPath>
+  </text>
+
+  <circle cx="21" cy="80" r="2" fill="#111827" />
+  <circle cx="139" cy="80" r="2" fill="#111827" />
+
+  <text font-size="7.4" font-weight="700" fill="#111827" font-family="sans-serif">
+    <textPath href="#favTextBottom" startOffset="50%" text-anchor="middle">
+      GEOLOGICAL INSTITUTE OF ETHIOPIA
+    </textPath>
+  </text>
+
+  <!-- Ethiopia Map Brown Silhouette -->
+  <path d="M 64 54 C 74 51, 88 53, 94 60 C 102 67, 107 72, 105 84 C 103 94, 94 105, 84 108 C 74 110, 68 104, 62 96 C 56 88, 54 75, 56 66 Z" fill="#7c4a20" />
+
+  <!-- Crossed Hammers -->
+  <g transform="rotate(45 80 80)">
+    <rect x="77.5" y="44" width="5" height="72" rx="2.5" fill="#1d4ed8" />
+    <path d="M 66 45 Q 80 43 94 45 L 94 51 Q 80 49 66 51 Z" fill="#94a3b8" />
+  </g>
+  <g transform="rotate(-45 80 80)">
+    <rect x="77.5" y="44" width="5" height="72" rx="2.5" fill="#1d4ed8" />
+    <path d="M 66 45 Q 80 43 94 45 L 94 51 Q 80 49 66 51 Z" fill="#94a3b8" />
+  </g>
+
+  <!-- GIE Acronym -->
+  <text x="80" y="85" text-anchor="middle" font-size="18" font-weight="900" font-family="serif" fill="#ffffff" stroke="#1e293b" stroke-width="1.2" paint-order="stroke fill">
+    GIE
+  </text>
+</svg>
